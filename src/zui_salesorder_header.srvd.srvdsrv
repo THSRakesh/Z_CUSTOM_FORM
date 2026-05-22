@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service Definition'
+@ObjectModel.leadingEntity.name: 'ZC_SALESORDER_HEADER'
+define service ZUI_SALESORDER_HEADER {
+  expose ZC_SALESORDER_HEADER;
+  expose ZC_SALESORDER_ITEMS;
+  expose ZC_SALESORDER_HEADER_ADS;
+  expose ZC_SALESORDER_ITEMS_ADS;
+}

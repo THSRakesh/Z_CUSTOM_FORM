@@ -1,0 +1,82 @@
+@Metadata.layer: #CORE
+@UI:{  
+    headerInfo: { 
+        typeName: 'SalesOrder',
+        typeNamePlural: 'SalesOrder',
+        title: { type: #STANDARD, label: 'Sales Order', value: 'SalesOrder' }
+    }
+}
+annotate view ZC_SALESORDER_HEADER
+    with 
+{
+     @UI.facet: [
+         { 
+            id: 'UISALESORDER_H',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Sales Order Header',
+            position: 10
+        },
+        { 
+            id: 'UISALESORDER_I',
+            purpose: #STANDARD,
+            type: #LINEITEM_REFERENCE,
+            label: 'Sales Order Items',
+            position: 20,
+            targetElement: '_item'
+        }
+    ]
+
+    @UI.lineItem: [{ position: 10 }]
+    @UI.identification: [{ position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    SalesOrder;
+    @UI.lineItem: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    SalesOrderType;
+    @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    SoldToParty;
+    @UI.lineItem: [{ position: 40 }]
+    @UI.identification: [{ position: 40 }]   
+    SalesOrganization;
+    @UI.lineItem: [{ position: 50 }]
+    @UI.identification: [{ position: 50 }]
+    TotalNetAmount;
+    @UI.hidden: true
+    TransactionCurrency;
+    @UI.lineItem: [{ position: 60 }]
+    @UI.identification: [{ position: 60 }]
+    CreationDate;
+    @UI.lineItem: [{ position: 70 }]
+    @UI.identification: [{ position: 70 }]
+    CreationTime;
+    @UI.lineItem: [{ position: 80 }]
+    @UI.identification: [{ position: 80 }]   
+    SalesOrderDate;
+    @UI.lineItem: [{ position: 90 }]
+    @UI.identification: [{ position: 90 }]
+    RequestedDeliveryDate;
+    @UI.hidden: true
+    OverallSDProcessStatus;
+    @UI.lineItem: [{ position: 100 }]
+    @UI.identification: [{ position: 100 }]
+    OverallSDProcessStatusDesc;
+        
+    @UI.lineItem: [{ 
+        position: 110, 
+        type: #WITH_URL, 
+        url: 'DownloadUrl', 
+        label: 'Download PDF' 
+    }]
+    DownloadLabel;
+
+    @UI.hidden: true
+    DownloadUrl;    
+    @UI.hidden: false   
+    fileContent;
+    @UI.hidden: false 
+    MimeType;
+    @UI.hidden: true
+    FileName;
+}

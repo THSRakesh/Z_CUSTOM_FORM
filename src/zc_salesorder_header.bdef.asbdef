@@ -1,0 +1,14 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_SALESORDER_HEADER //alias <alias_name>
+{
+
+  use association _item;
+}
+
+define behavior for ZC_SALESORDER_ITEMS //alias <alias_name>
+{
+
+  use association _header;
+}

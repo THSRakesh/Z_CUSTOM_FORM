@@ -1,0 +1,21 @@
+unmanaged implementation in class zbp_i_salesorder_header unique;
+strict ( 2 );
+
+define behavior for ZI_SALESORDER_HEADER //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  association _item;
+}
+
+define behavior for ZI_SALESORDER_ITEMS //alias <alias_name>
+//late numbering
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+  field ( readonly ) SalesOrder;
+  association _header;
+}

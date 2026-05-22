@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+@UI:{  
+    headerInfo: { 
+        typeName: 'SalesOrder',
+        typeNamePlural: 'SalesOrder',
+        title: { type: #STANDARD, label: 'Sales Order Item', value: 'SalesOrderItem' }
+    }
+}
+annotate view ZC_SALESORDER_ITEMS
+    with 
+{
+     @UI.facet: [
+         { 
+            id: 'UISALESORDER_I',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Sales Order Item',
+            position: 10
+        }
+    ]
+    @UI.lineItem: [{ position: 10 }]
+    SalesOrderItem;
+    @UI.lineItem: [{ position: 20 }]
+    Product;
+    @UI.lineItem: [{ position: 30 }] 
+    SalesOrderItemText;
+    @UI.lineItem: [{ position: 40 }] 
+    ProductGroup;
+    @UI.lineItem: [{ position: 50 }] 
+    Plant;
+    @UI.lineItem: [{ position: 60 }] 
+    OrderQuantity;
+    @UI.hidden: true 
+    OrderQuantityUnit;
+    @UI.lineItem: [{ position: 70 }] 
+    NetAmount;
+    @UI.hidden: true 
+    Currency;
+    
+ }
